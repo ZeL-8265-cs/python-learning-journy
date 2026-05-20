@@ -15,18 +15,18 @@ enemy = {
     "inventory": ["potion",'potion','potion']
 }
 
-# 显示角色信息
+# Display character information
 def show_status(character):
     print('\ncharacter:' + character['name'] + '\n' + 'HP:' + str(character['hp']))
 
-# 攻击系统
+# attacking system
 def attack(attacker,target):
     target['hp'] = target['hp'] - attacker['attack']
     print('Now ' + target['name'] + ' has ' + str(target['hp']) + '\n')
     time.sleep(0.5)
     return target
 
-# 回复药水
+# potion
 def use_potion(character):
     if 'potion' in character['inventory']:
         character['hp'] = character['hp'] + 15
@@ -38,13 +38,13 @@ def use_potion(character):
         time.sleep(0.5)
     return character
 
-# 主程序
+# main loop
 print('=====RPG=====')
 while True:
     print('Your action:<1>check, <2>attack, <3>potion', '<4>exit')
     time.sleep(0.5)
 
-    # 玩家操作
+    # player's term
     usersAction = pyip.inputChoice(['1','2','3','4'],prompt='What do you do: ')
 
     if usersAction == '1':
@@ -61,7 +61,7 @@ while True:
         print('You win\n')
         break
 
-    # 敌人操作
+    # enemy's term
     enemyAction = random.randint(1,2)
     if enemyAction == 1:
         player = attack(enemy,player)
@@ -74,7 +74,7 @@ while True:
         print('It has ' + str(enemy['hp']) + ' hp now' + '\n')
         time.sleep(0.5)
 
-    # 判断胜利
+    # Determine victory
     if player['hp'] <= 0:
         print('You lose\n')
         break
