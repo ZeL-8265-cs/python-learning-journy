@@ -15,36 +15,36 @@ enemy = {
     "inventory": ["potion",'potion','potion']
 }
 
-# Display character information
+# check information
 def show_status(character):
-    print('\ncharacter:' + character['name'] + '\n' + 'HP:' + str(character['hp']))
+    print(f'\ncharacter: {character["name"]}\nHP: {character["hp"]}')
 
-# attacking system
+# attack system
 def attack(attacker,target):
     target['hp'] = target['hp'] - attacker['attack']
-    print('Now ' + target['name'] + ' has ' + str(target['hp']) + '\n')
+    print(f'Now {target["name"]} has {target["hp"]} HP\n')
     time.sleep(0.5)
     return target
 
-# potion
+# potion system 
 def use_potion(character):
     if 'potion' in character['inventory']:
         character['hp'] = character['hp'] + 15
         character['inventory'].remove('potion')
-        print('Now ' + character['name'] + ' has ' + str(character['hp']))
+        print(f'Now {character["name"]} has {character["hp"]} HP\n')
         time.sleep(0.5)
     else:
-        print('Hahaha ' + character['name'] + ' don\'t have potion\n')
+        print(f'Hahaha {character["name"]} don\'t have potion\n')
         time.sleep(0.5)
     return character
 
-# main loop
+# Main loop
 print('=====RPG=====')
 while True:
     print('Your action:<1>check, <2>attack, <3>potion', '<4>exit')
     time.sleep(0.5)
 
-    # player's term
+    # UserAction
     usersAction = pyip.inputChoice(['1','2','3','4'],prompt='What do you do: ')
 
     if usersAction == '1':
@@ -61,17 +61,17 @@ while True:
         print('You win\n')
         break
 
-    # enemy's term
+    # EnemyAction
     enemyAction = random.randint(1,2)
     if enemyAction == 1:
         player = attack(enemy,player)
         time.sleep(0.5)
-        print('You lose ' + str(enemy['attack']) + ' hp. You still have ' + str(player['hp']) + ' hp' + '\n')
+        print(f'You lose {enemy['attack']} hp. You still have {player["hp"]} hp' + '\n')
         time.sleep(0.5)
     elif enemyAction == 2:
         enemy = use_potion(enemy)
         time.sleep(0.5)
-        print('It has ' + str(enemy['hp']) + ' hp now' + '\n')
+        print(f'It has {enemy["hp"]} hp now')
         time.sleep(0.5)
 
     # Determine victory
