@@ -3,9 +3,9 @@
 ## Project Overview
 This project is a simple text-based RPG game developed in Python.
 
-The player fights against an enemy in a turn-based combat system. Both the player and enemy can attack or use potions to recover health points.
+The player can fight against the enemy in a turn-based combat system. Both the player and enemy can attack or use potions to recover health points.
 
-This project was created as part of my Computer Science learning journey and helped me practise programming logic and game mechanics.
+This project was created as part of my Computer Science learning journey and helped me practise my programming properly and logically 
 
 ---
 
@@ -32,7 +32,7 @@ Through this project, I learned:
 - How to use dictionaries to store character data
 - How to structure programs using functions
 - How game loops work
-- How to use random number generation
+- How to use random number generation to generate random attack damage
 - Basic turn-based game design
 - Input validation techniques
 
