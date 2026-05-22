@@ -16,11 +16,11 @@ def read_sentence():
     return sentence
 
 def get_input():
-    adjective = str(input('Enter your adjective?\n '))
-    verb1 = str(input('Enter your first verb?\n '))
-    noun1 = str(input('Enter your first noun?\n '))
-    noun2 = str(input('Enter your second noun?\n '))
-    verb2 = str(input('Enter your second verb?\n '))
+    adjective = pyip.inputStr(prompt="Enter a adjective: ")
+    verb1 = pyip.inputStr(prompt="Enter a first verb: ")
+    noun1 = pyip.inputStr(prompt="Enter a first noun: ")
+    noun2 = pyip.inputStr(prompt="Enter a second noun: ")
+    verb2 = pyip.inputStr(prompt="Enter a second verb: ")
     return [adjective, verb1, noun1, noun2, verb2]
 
 def replace_word(text,inputWord):
