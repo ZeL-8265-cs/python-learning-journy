@@ -10,7 +10,7 @@ with open(path, 'w') as f:
 
 # open and read the file
 def read_sentence():
-    madLibFile = open(path, 'r')
+    madLibFile = open(story, 'r')
     sentence = madLibFile.read()
     madLibFile.close()
     return sentence
