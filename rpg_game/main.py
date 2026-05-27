@@ -21,11 +21,17 @@ def show_status(character):
 
 # attack system
 def attack(attacker,target):
-    target['hp'] = target['hp'] - attacker['attack']
-    print(f'Now {target["name"]} has {target["hp"]} HP\n')
-    time.sleep(0.5)
-    return target
+    damage = attacker['attack']
+    if target.get('defend') == True:
+        damage = damage // 2
+        print(f"{target['name']} defended the {attacker['name']}!")
 
+    target['hp'] = target['hp'] - damage
+    print(f"Now {target['name']} has {target['hp']} HP\n")
+    target['defend'] = False
+    time.sleep(0.5)
+    return target, damage
+    
 # potion system 
 def use_potion(character):
     if 'potion' in character['inventory']:
@@ -38,20 +44,27 @@ def use_potion(character):
         time.sleep(0.5)
     return character
 
+# Defend system
+def defend(character):
+    character['defend'] = True
+    print(f'Now {character["name"]} is defending\n')
+
+
 # Main loop
 print('=====RPG=====')
 while True:
-    print('Your action:<1>check, <2>attack, <3>potion', '<4>exit')
+    print('Your action:<1>defend, <2>attack, <3>potion', '<4>exit')
+    show_status(player)
+    show_status(enemy)
     time.sleep(0.5)
 
     # UserAction
     usersAction = pyip.inputChoice(['1','2','3','4'],prompt='What do you do: ')
 
     if usersAction == '1':
-        show_status(player)
-        show_status(enemy)
+        defend(player)
     elif usersAction == '2':
-        enemy = attack(player,enemy)
+        enemy , damage = attack(player,enemy)
     elif usersAction == '3':
         player = use_potion(player)
     elif usersAction == '4':
@@ -64,9 +77,9 @@ while True:
     # EnemyAction
     enemyAction = random.randint(1,2)
     if enemyAction == 1:
-        player = attack(enemy,player)
+        player , damage = attack(enemy,player)
         time.sleep(0.5)
-        print(f'You lose {enemy['attack']} hp. You still have {player["hp"]} hp' + '\n')
+        print(f"You lose {enemy['damage']} hp. You still have {player['hp']} hp\n")
         time.sleep(0.5)
     elif enemyAction == 2:
         enemy = use_potion(enemy)
