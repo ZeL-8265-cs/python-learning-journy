@@ -11,9 +11,11 @@ This project was created as part of my Computer Science learning journey and hel
 
 ## Features
 - Turn-based battle system
-- Random attack damage
-- Potion healing system
-- Inventory management
+- Random attack damage system 
+- Potion system
+- Defend system
+- Inventory management system
+- HP system 
 - Enemy AI actions
 - Input validation using PyInputPlus
 
