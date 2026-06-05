@@ -1,37 +1,27 @@
 # python3_fileOrganiser
 import os, shutil
 
-# Create a new folder
 os.chdir('/Users/lianzerui/Desktop')
-os.makedirs('./sortFile')
-os.makedirs('./sortFile/txt')
-os.makedirs('./sortFile/pdf')
-os.makedirs('./sortFile/png')
-os.makedirs('./sortFile/jpg')
 
-# Go through the directory tree
-for folderName, subfolders, filenames in os.walk('.'):
-    for filename in filenames:
-        if folderName.startswith('./sortFile'):
-            continue
-        # Scan the txt
+os.makedirs('./sortFile/txt', exist_ok=True)
+os.makedirs('./sortFile/pdf', exist_ok=True)
+os.makedirs('./sortFile/png', exist_ok=True)
+os.makedirs('./sortFile/jpg', exist_ok=True)
+
+for filename in os.listdir('.'):
+
+    src = os.path.join('.', filename)
+
+    if os.path.isfile(src):
+
         if filename.endswith('.txt'):
-            try:
-                shutil.move(filename, './sortFile/txt')
-            except:
-                continue
+            shutil.copy(src, './sortFile/txt')
+
         elif filename.endswith('.pdf'):
-            try:
-                shutil.move(filename, './sortFile/pdf')
-            except:
-                continue
+            shutil.copy(src, './sortFile/pdf')
+
         elif filename.endswith('.png'):
-            try:
-                shutil.move(filename, './sortFile/png')
-            except:
-                continue
+            shutil.copy(src, './sortFile/png')
+
         elif filename.endswith('.jpg'):
-            try:
-                shutil.move(filename, './sortFile/jpg')
-            except:
-                continue
+            shutil.copy(src, './sortFile/jpg')
