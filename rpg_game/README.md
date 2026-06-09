@@ -14,6 +14,7 @@ This project was created as part of my Computer Science learning journey and hel
 - Random attack damage system 
 - Potion system
 - Defend system
+- Critical hit 
 - Inventory management system
 - HP system 
 - Enemy AI actions
