@@ -22,6 +22,13 @@ def show_status(character):
 # attack system
 def attack(attacker,target):
     damage = attacker['attack']
+    # Critical hit
+    critical_rate = random.randint(1, 100)
+    if critical_rate <= 20:
+        damage = damage * 2
+        print(f'CRITICAL DAMAGE!!: {damage}')
+
+    # Defend hit
     if target.get('defend') == True:
         damage = damage // 2
         print(f"{target['name']} defended the {attacker['name']}!")
