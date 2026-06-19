@@ -1,6 +1,5 @@
 # This is the student score organiser
-This is a simple Python command program for managing student score.
-This is my second version <v2>. I might update new version in the future to strength my program
+This is a simple Python command program for managing student score. This is my second version <v2>. I might update new version in the future to strength my program
 
 ---
 
